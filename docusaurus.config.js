@@ -8,11 +8,12 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
     title: '无解的游戏',
     tagline: '记录生活和学习',
-    url: 'https://www.wjstar.top',
-    baseUrl: '/',
+    url: 'https://sword-demon.github.io',
+    baseUrl: '/sword-wiki/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
+    trailingSlash: false,
 
     // GitHub pages deployment config.
     // If you aren't using GitHub pages, you don't need these.
