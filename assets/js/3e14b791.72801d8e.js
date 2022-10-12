@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[1703],{888:e=>{e.exports=JSON.parse('{"label":"hello","permalink":"/sword-wiki/blog/tags/hello","allTagsPath":"/sword-wiki/blog/tags","count":2}')}}]);

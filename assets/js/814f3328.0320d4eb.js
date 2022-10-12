@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"\u6587\u7ae0","items":[{"title":"\u6587\u6863\u7b14\u8bb0\u521d\u521b","permalink":"/sword-wiki/blog/wiki-create"}]}')}}]);

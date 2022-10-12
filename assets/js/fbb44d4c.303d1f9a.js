@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[164],{7864:e=>{e.exports=JSON.parse('{"label":"syncMap","permalink":"/sword-wiki/dev/tags/sync-map","allTagsPath":"/sword-wiki/dev/tags","count":1,"items":[{"id":"Go/Map","title":"Map","description":"\u5b9a\u4e49","permalink":"/sword-wiki/dev/Go/Map"}]}')}}]);
