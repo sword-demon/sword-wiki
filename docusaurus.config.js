@@ -39,7 +39,7 @@ const config = {
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
                     editUrl:
-                        'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+                    'https://github.com/sword-demon/sword-wiki/tree/main/packages/create-docusaurus/templates/shared/',
                     showLastUpdateAuthor: true,
                     showLastUpdateTime: true,
                     breadcrumbs: false,
@@ -49,7 +49,7 @@ const config = {
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
                     editUrl:
-                        'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+                        'https://github.com/sword-demon/sword-wiki/tree/main/packages/create-docusaurus/templates/shared/',
                     blogDescription: "wxvirus的个人生活和工作记录",
                     blogSidebarCount: 7,
                     blogSidebarTitle: "文章",
@@ -110,13 +110,13 @@ const config = {
                             },
                         ],
                     },
-                    {
-                        type: 'doc',
-                        docId: 'intro',
-                        position: 'left',
-                        label: 'Tutorial',
-                    },
-                    {to: '/blog', label: '博客', position: 'left'},
+//                    {
+//                        type: 'doc',
+//                        docId: 'intro',
+//                        position: 'left',
+//                        label: 'Tutorial',
+//                    },
+                    {to: '/blog', label: '博客', position: 'right'},
                     {
                         href: 'https://github.com/sword-demon/sword-wiki',
                         label: 'GitHub',
