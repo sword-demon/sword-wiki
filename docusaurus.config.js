@@ -39,7 +39,7 @@ const config = {
                     // Please change this to your repo.
                     // Remove this to remove the "edit this page" links.
                     editUrl:
-                    'https://github.com/sword-demon/sword-wiki/tree/main/packages/create-docusaurus/templates/shared/',
+                        'https://github.com/sword-demon/sword-wiki/tree/main/packages/create-docusaurus/templates/shared/',
                     showLastUpdateAuthor: true,
                     showLastUpdateTime: true,
                     breadcrumbs: false,
@@ -132,7 +132,7 @@ const config = {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
                 defaultLanguage: "markdown",
-                additionalLanguages: ["java", "git","nginx","http"],
+                additionalLanguages: ["java", "git", "nginx", "http", "php", "go", "python"],
             },
         }),
 };
