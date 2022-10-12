@@ -1,0 +1,8 @@
+{
+  "label": "Go语言学习",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Go 以及 Go框架的学习"
+  }
+}
