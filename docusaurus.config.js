@@ -80,6 +80,19 @@ const config = {
                 showLastUpdateTime: true,
                 breadcrumbs: false,
             },
+        ],
+        [
+            "@docusaurus/plugin-content-docs",
+            {
+                id: "power",
+                path: "wiki/power",
+                routeBasePath: "power",
+                sidebarPath: require.resolve("./sidebars.js"),
+//                editUrl: "https://git.7wate.com/zhouzhongping/wiki/src/branch/master",
+                showLastUpdateAuthor: true,
+                showLastUpdateTime: true,
+                breadcrumbs: false,
+            },
         ]
     ],
 
@@ -108,6 +121,10 @@ const config = {
                                 label: "程序语言",
                                 to: "/dev",
                             },
+                            {
+                                label: '程序内功',
+                                to: '/power',
+                            }
                         ],
                     },
 //                    {
