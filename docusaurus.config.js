@@ -57,7 +57,7 @@ const config = {
                         title: "wxvirus`s Blog",
                         description: "wxvirus 的个人生活和工作记录",
                         type: 'all',
-                        copyright: `Copyright © ${new Date().getFullYear()} wxvirus, Inc.`,
+                        copyright: `Copyright © ${ new Date().getFullYear() } wxvirus, Inc.`,
                     },
                 },
                 theme: {
@@ -133,7 +133,9 @@ const config = {
 //                        position: 'left',
 //                        label: 'Tutorial',
 //                    },
-                    {to: '/blog', label: '博客', position: 'right'},
+                    {
+                        to: '/blog', label: '博客', position: 'right'
+                    },
                     {
                         href: 'https://github.com/sword-demon/sword-wiki',
                         label: 'GitHub',
@@ -143,7 +145,7 @@ const config = {
             },
             footer: {
                 style: 'dark',
-                copyright: `Copyright © ${new Date().getFullYear()} 无解的游戏, Inc. Built with Docusaurus.`,
+                copyright: `Copyright © ${ new Date().getFullYear() } 无解的游戏, Inc. Built with Docusaurus.`,
             },
             prism: {
                 theme: lightCodeTheme,

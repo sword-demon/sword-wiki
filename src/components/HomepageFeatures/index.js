@@ -1,5 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
+import styled from "@emotion/styled";
+import BgImage from "@site/static/img/lanran.svg";
 import styles from './styles.module.css';
 
 const FeatureList = [
@@ -51,14 +53,41 @@ function Feature({Svg, title, description}) {
 
 export default function HomepageFeatures() {
   return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
+    // <section className={styles.features}>
+    //   <div className="container">
+    //     <div className="row">
+    //       {FeatureList.map((props, idx) => (
+    //         <Feature key={idx} {...props} />
+    //       ))}
+    //     </div>
+    //   </div>
+    // </section>
+      <div className={ styles.mainWrapper } style={{backgroundImage: BgImage}}>
+          <div className={ styles.title }>
+              <div>
+                  Welcome to
+                  <span> wxvirus</span>
+                  's Site
+              </div>
+              <div className={ styles.subTitle }>计算机编程探索者</div>
+          </div>
+          <div
+              style={ {
+                  display: "flex",
+                  alignItems: "end",
+                  height: "calc(100vh - 60px)",
+              } }
+          >
+          </div>
       </div>
-    </section>
   );
 }
+
+const SvgBackGround = styled(BgImage)`
+  height: 100%;
+  width: 50vw;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  margin-bottom: 20px;
+`;

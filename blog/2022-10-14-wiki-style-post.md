@@ -1,3 +1,11 @@
+---
+slug: wiki-style
+title: 文档笔记初创样式调节
+authors: wxvirus
+tags: [wiki, blog, style]
+---
+
+```css title="styles.module.css"
 .features {
     display: flex;
     align-items: center;
@@ -47,3 +55,5 @@
     cursor: pointer;
     padding-right: 26px;
 }
+
+```
