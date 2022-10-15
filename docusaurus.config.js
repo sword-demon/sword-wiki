@@ -134,7 +134,22 @@ const config = {
 //                        label: 'Tutorial',
 //                    },
                     {
-                        to: '/blog', label: '博客', position: 'right'
+                        label: '标签',
+                        to: '/blog/tags',
+                        position: "right"
+                    },
+                    {
+                        label: '时间轴',
+                        to: '/blog/archive',
+                        position: "right"
+                    },
+                    {
+                        to: '/blog', label: '博客', position: 'right',
+                    },
+                    {
+                      label: '关于',
+                      to: '/about',
+                      position: "right"
                     },
                     {
                         href: 'https://github.com/sword-demon/sword-wiki',
