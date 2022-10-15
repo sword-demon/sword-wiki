@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import Link from '@docusaurus/Link';
+// import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
@@ -32,7 +32,6 @@ export default function Home() {
     <Layout
       title={`无解 ${siteConfig.title}`}
       description="无解的游戏">
-      {/*<HomepageHeader />*/}
       <main>
         <HomepageFeatures />
       </main>

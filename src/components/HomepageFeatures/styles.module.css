@@ -17,8 +17,7 @@
     background-repeat: no-repeat;
     background-position: right center;
     background-size: cover;
-    /*background-color: #2d364a;*/
-    background-image: url("../../../static/img/lanran.jpg");
+    background-color: #fff;
 }
 
 .mainWrapper .title {
@@ -29,21 +28,20 @@
     align-items: center;
     font-size: 3rem;
     position: relative;
-    bottom: 150px;
     justify-content: center;
     font-weight: 600;
 }
 
-.mainWrapper .subTitle {
+.mainWrapper .title .subTitle {
     font-size: 22px;
     font-weight: 300;
 }
 
-.mainWrapper .subTitle > div > span {
+.mainWrapper .title > div > span {
     color: #338bff;
 }
 
-.mainWrapper .subTitle .socialLinks > a {
+.mainWrapper .title .socialLinks > a {
     cursor: pointer;
     padding-right: 26px;
 }
