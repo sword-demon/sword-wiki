@@ -59,6 +59,12 @@ const config = {
                         type: 'all',
                         copyright: `Copyright © ${ new Date().getFullYear() } wxvirus, Inc.`,
                     },
+                    remarkPlugins: [
+                        [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
+                    ],
+                },
+                pages: {
+                    remarkPlugins: [require('@docusaurus/remark-plugin-npm2yarn')],
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
@@ -68,6 +74,16 @@ const config = {
     ],
 
     plugins: [
+        [
+            '@docusaurus/plugin-ideal-image',
+            {
+                quality: 70,
+                max: 1030, // 最大缩放图片尺寸。
+                min: 640, // 最小缩放图片尺寸。 如果原始值比这还低，会使用原图尺寸。
+                steps: 2, // 在 min 和 max 之间最多生成的图片数量（包含两端点）
+                disableInDev: false,
+            },
+        ],
         [
             "@docusaurus/plugin-content-docs",
             {
@@ -79,6 +95,9 @@ const config = {
                 showLastUpdateAuthor: true,
                 showLastUpdateTime: true,
                 breadcrumbs: false,
+                remarkPlugins: [
+                    [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
+                ]
             },
         ],
         [
@@ -92,6 +111,9 @@ const config = {
                 showLastUpdateAuthor: true,
                 showLastUpdateTime: true,
                 breadcrumbs: false,
+                remarkPlugins: [
+                    [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
+                ]
             },
         ]
     ],
@@ -167,6 +189,17 @@ const config = {
                 darkTheme: darkCodeTheme,
                 defaultLanguage: "markdown",
                 additionalLanguages: ["java", "git", "nginx", "http", "php", "go", "python", "rust"],
+                magicComments: [
+                    {
+                        className: 'theme-code-block-highlighted-line',
+                        line: 'highlight-next-line',
+                        block: {start: 'hs', end: 'he'},
+                    },
+                    {
+                        className: 'code-block-error-line',
+                        line: 'This will error',
+                    },
+                ]
             },
         }),
 };
