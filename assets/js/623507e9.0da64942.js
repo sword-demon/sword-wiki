@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[2053],{8346:e=>{e.exports=JSON.parse('[{"label":"algo","permalink":"/sword-wiki/power/tags/algo","count":1},{"label":"linear_list","permalink":"/sword-wiki/power/tags/linear-list","count":1}]')}}]);
