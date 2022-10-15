@@ -151,7 +151,7 @@ const config = {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
                 defaultLanguage: "markdown",
-                additionalLanguages: ["java", "git", "nginx", "http", "php", "go", "python"],
+                additionalLanguages: ["java", "git", "nginx", "http", "php", "go", "python", "rust"],
             },
         }),
 };
