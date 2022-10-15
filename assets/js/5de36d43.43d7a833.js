@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[9142],{4906:e=>{e.exports=JSON.parse('{"label":"algo","permalink":"/power/tags/algo","allTagsPath":"/power/tags","count":1,"items":[{"id":"datastruct/\u7ebf\u6027\u8868","title":"\u7ebf\u6027\u8868","description":"\u7ebf\u6027\u8868","permalink":"/power/datastruct/\u7ebf\u6027\u8868"}]}')}}]);

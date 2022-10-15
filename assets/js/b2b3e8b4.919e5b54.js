@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[8161],{5042:e=>{e.exports=JSON.parse('{"label":"syncMap","permalink":"/dev/tags/sync-map","allTagsPath":"/dev/tags","count":1,"items":[{"id":"Go/Map","title":"Map","description":"\u5b9a\u4e49","permalink":"/dev/Go/Map"}]}')}}]);

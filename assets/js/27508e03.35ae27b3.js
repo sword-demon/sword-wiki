@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[4133],{5729:e=>{e.exports=JSON.parse('{"title":"K8S","description":"K8S\u5b66\u4e60","slug":"/category/k8s","permalink":"/dev/category/k8s","navigation":{"previous":{"title":"Map","permalink":"/dev/Go/Map"},"next":{"title":"K8S\u7b80\u4ecb","permalink":"/dev/K8S/K8S\u7b80\u4ecb"}}}')}}]);

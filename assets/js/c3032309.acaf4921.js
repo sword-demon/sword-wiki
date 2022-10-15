@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[1428],{9598:e=>{e.exports=JSON.parse('{"label":"map","permalink":"/sword-wiki/dev/tags/map","allTagsPath":"/sword-wiki/dev/tags","count":1,"items":[{"id":"Go/Map","title":"Map","description":"\u5b9a\u4e49","permalink":"/sword-wiki/dev/Go/Map"}]}')}}]);
