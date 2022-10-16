@@ -32,6 +32,7 @@ title: 关于
 - 熟悉数据库/应用存储
 - 熟悉Git/SVN代码版本控制管理
 - 熟悉使用Mac/Windows/Linux
+- 了解Rust
 
 
 
@@ -44,7 +45,7 @@ title: 关于
 | 时间              | 公司名称 | 职位         |
 | ----------------- | -------- | ------------ |
 | 2019.07 - 至今    | Dline    | 在线Saas客服 |
-| 2015.09 - 2019.06 | PornHub  | 摄影师助理   |
+| 2015.09 - 2019.06 | 无解  | 无解的吹逼   |
 
 
 
@@ -71,17 +72,6 @@ title: 关于
 
 - 用户体验分析师
 - 研究如何让用户尽可能无法取消软件订阅
-
-
-
-#### Pornhub
-
-2016.03 - 2017.03	摄影师助理
-
-Pornhub is the world's leading free porn site. Choose from millions of hardcore videos that stream quickly and in high quality, including amazing VR Porn
-
-- 负责鉴黄
-- 监督PornStar工作进度
 
 
 
