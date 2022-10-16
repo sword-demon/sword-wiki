@@ -4,11 +4,21 @@
         <title>wxvirus`s Blog</title>
         <link>https://sword-demon.github.io/sword-wiki/blog</link>
         <description>wxvirus 的个人生活和工作记录</description>
-        <lastBuildDate>Fri, 14 Oct 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 16 Oct 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-Hans</language>
         <copyright>Copyright © 2022 wxvirus, Inc.</copyright>
+        <item>
+            <title><![CDATA[学习记录]]></title>
+            <link>https://sword-demon.github.io/sword-wiki/blog/learn-on-day</link>
+            <guid>learn-on-day</guid>
+            <pubDate>Sun, 16 Oct 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[好看的背景图]]></description>
+            <content:encoded><![CDATA[<p><img loading="lazy" alt="好看的背景图" src="/sword-wiki/assets/images/bg-fadee9b2c824b32068046806e4149f4c.jpg" width="4608" height="3456" class="img_ev3q"></p><ol><li>学习<code>Vue3</code> + <code>vite</code>实现管理后台<ul><li>创建基本项目</li><li>登录页构建以</li><li>封装使用的一些库  </li><li>调用登录接口调用以及优化</li><li>使用<code>vuex</code>存储登录用户信息</li></ul></li><li>学习<code>rust</code>语言<ul><li>学习<code>struct</code>中使用泛型</li><li>泛型方法<code>demo</code>手动练习</li><li><code>trait</code>入门，编写简单共享行为接口</li></ul></li></ol><blockquote><p>剩余时间，看看电视 ，看看群友吹牛逼</p></blockquote><div class="theme-admonition theme-admonition-caution alert alert--warning admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>难受</div><div class="admonitionContent_S0QG"><p>偶尔处理一下公司项目问题</p></div></div>]]></content:encoded>
+            <category>blog</category>
+            <category>study</category>
+        </item>
         <item>
             <title><![CDATA[文档笔记初创样式调节]]></title>
             <link>https://sword-demon.github.io/sword-wiki/blog/wiki-style</link>
