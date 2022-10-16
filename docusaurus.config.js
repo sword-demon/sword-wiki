@@ -12,7 +12,7 @@ const config = {
     baseUrl: '/sword-wiki/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
-    favicon: 'img/favicon.ico',
+    favicon: 'my/logo.ico',
     trailingSlash: false,
 
     // GitHub pages deployment config.
@@ -188,7 +188,7 @@ const config = {
                 theme: lightCodeTheme,
                 darkTheme: darkCodeTheme,
                 defaultLanguage: "markdown",
-                additionalLanguages: ["java", "git", "nginx", "http", "php", "go", "python", "rust"],
+                additionalLanguages: ["java", "git", "nginx", "http", "php", "go", "python", "rust", "json", "properties", "protobuf"],
                 magicComments: [
                     {
                         className: 'theme-code-block-highlighted-line',
