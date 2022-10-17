@@ -9,3 +9,186 @@ tags: [Vue3, Vite, ElementPlus, Windicss, VueRouter4, Layout]
 # 后台布局开发
 
 ## 后台主布局实现
+
+主要使用`elemnt-plus`的`Container`容器：文档地址[https://element-plus.gitee.io/zh-CN/component/container.html](https://element-plus.gitee.io/zh-CN/component/container.html)
+
+
+
+我们在`src`下新建`layouts`目录，新建一个`admin.vue`后台的一个布局页面
+
+```js
+<template>
+    <el-container>
+        <!-- 头部 -->
+        <el-header>
+            <f-header />
+        </el-header>
+        <el-container>
+            <el-aside>
+                <f-menu />
+            </el-aside>
+            <el-main>
+                <f-tag-list />
+                <router-view></router-view>
+            </el-main>
+        </el-container>
+    </el-container>
+</template>
+
+<script setup>
+import FHeader from "./components/FHeader.vue";
+import FMenu from "./components/FMenu.vue";
+import FTagList from "./components/FTagList.vue";
+</script>
+
+```
+
+我们分别在其目录下新建`components`，然后分离出单独的头部，左侧菜单以及标签导航栏，都是简单的页面，分别加上对应的名称
+
+```js
+<template>
+    <div>头部</div>
+</template>
+
+<script setup>
+</script>
+
+<style scoped>
+</style>
+
+```
+
+>   这里就只写一个了，别的都是复制粘贴，然后就`头部`两个字不一样
+
+![](https://virusoss.oss-cn-shanghai.aliyuncs.com/images/20221017235505.png)
+
+---
+
+我们在路由中设置后台的路由，并添加子路由
+
+```js
+import { createRouter, createWebHashHistory } from 'vue-router'
+import Admin from '~/layouts/admin.vue'
+import Index from '~/pages/index.vue'
+import Login from '~/pages/login.vue'
+import NotFound from '~/pages/404.vue'
+const routes = [
+    {
+        path: '/',
+        component: Admin,
+        // 子路由
+        children: [
+            {
+                path: '/',
+                component: Index,
+                meta: {
+                    title: '后台首页',
+                },
+            },
+        ],
+    },
+    {
+        path: '/login',
+        component: Login,
+        meta: {
+            title: '登录页',
+        },
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        component: NotFound,
+    },
+]
+
+const router = createRouter({
+    history: createWebHashHistory(),
+    routes,
+})
+
+export default router
+
+```
+
+
+
+## 公共头部开发
+
+下拉菜单文档地址[https://element-plus.gitee.io/zh-CN/component/dropdown.html](https://element-plus.gitee.io/zh-CN/component/dropdown.html)
+
+头像组件[https://element-plus.gitee.io/zh-CN/component/avatar.html](https://element-plus.gitee.io/zh-CN/component/avatar.html)
+
+
+
+```js
+<template>
+    <!-- 水平方向 -->
+    <div class="f-header">
+        <span class="logo">
+            <el-icon class="mr-1"><Promotion /></el-icon>
+            无解的游戏
+        </span>
+        <!-- 收缩图标 -->
+        <el-icon class="icon-btn"><Fold /></el-icon>
+        <!-- 刷新图标 -->
+        <el-icon class="icon-btn"><RefreshRight /></el-icon>
+        <div class="ml-auto flex items-center">
+            <!-- 全屏图标 -->
+            <el-icon class="icon-btn"><FullScreen /></el-icon>
+            <el-dropdown class="dropdown">
+                <span class="flex items-center text-light-50">
+                    <!-- 头像 -->
+                    <el-avatar
+                        class="mr-2"
+                        :size="25"
+                        :src="$store.state.user.avatar"
+                    />
+                    <!-- 昵称 -->
+                    {{ $store.state.user.username }}
+                    <el-icon class="el-icon--right">
+                        <arrow-down />
+                    </el-icon>
+                </span>
+                <template #dropdown>
+                    <el-dropdown-menu>
+                        <el-dropdown-item>修改密码</el-dropdown-item>
+                        <el-dropdown-item>退出登录</el-dropdown-item>
+                    </el-dropdown-menu>
+                </template>
+            </el-dropdown>
+        </div>
+    </div>
+</template>
+
+<script setup>
+</script>
+
+<style scoped>
+.f-header {
+    @apply flex bg-indigo-700 text-light-50 fixed top-0 left-0 right-0 items-center;
+    height: 64px;
+}
+.logo {
+    width: 250px;
+    @apply flex justify-center items-center text-xl font-thin;
+}
+.icon-btn {
+    @apply flex justify-center items-center;
+    width: 42px;
+    height: 64px;
+    cursor: pointer;
+}
+.icon-btn:hover {
+    @apply bg-indigo-600;
+}
+
+.f-header .dropdown {
+    height: 64px;
+    cursor: pointer;
+    @apply flex justify-center items-center mx-5;
+}
+</style>
+
+```
+
+![效果图](https://virusoss.oss-cn-shanghai.aliyuncs.com/images/20221018001147.png)
