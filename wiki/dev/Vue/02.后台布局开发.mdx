@@ -192,3 +192,493 @@ export default router
 ```
 
 ![效果图](https://virusoss.oss-cn-shanghai.aliyuncs.com/images/20221018001147.png)
+
+## 刷新和全屏按钮
+
+还需要使用到`vueuse`的一个核心包
+
+```bash npm2yarn
+npm install @vueuse/core
+```
+
+
+
+简单实现页面点击刷新
+
+```js
+// 刷新
+const handleRefresh = () => location.reload();
+```
+
+然后给刷新按钮加上点击事件即可
+
+```html
+<el-tooltip effect="dark" content="刷新" placement="bottom">
+    <el-icon class="icon-btn" @click="handleRefresh"
+             ><RefreshRight
+                            /></el-icon>
+</el-tooltip>
+```
+
+---
+
+使用`vueuse`的包来实现全屏功能
+
+引入包
+
+```js
+import { useFullscreen } from "@vueuse/core";
+
+// 是否全屏 全屏切换
+const { isFullscreen, toggle } = useFullscreen();
+```
+
+```js
+<el-tooltip effect="dark" content="全屏" placement="bottom">
+    <el-icon class="icon-btn" @click="toggle">
+        // 判断不是全屏状态下显示全屏按钮
+        <FullScreen v-if="!isFullscreen" />
+            // 另一个图标
+            <Aim v-else />
+</el-icon>
+</el-tooltip>
+```
+
+
+
+## 修改密码
+
+>   点击修改密码，弹出一个抽屉表单来进行提交修改。
+
+抽屉文档地址：[https://element-plus.gitee.io/zh-CN/component/drawer.html](https://element-plus.gitee.io/zh-CN/component/drawer.html)
+
+```js
+<template>
+    <!-- 水平方向 -->
+    <div class="f-header">
+        <span class="logo">
+            <el-icon class="mr-1"><Promotion /></el-icon>
+            无解的游戏
+        </span>
+        <!-- 收缩图标 -->
+        <el-icon class="icon-btn"><Fold /></el-icon>
+        <!-- 刷新图标 -->
+        <el-tooltip effect="dark" content="刷新" placement="bottom">
+            <el-icon class="icon-btn" @click="handleRefresh"
+                ><RefreshRight
+            /></el-icon>
+        </el-tooltip>
+        <div class="ml-auto flex items-center">
+            <!-- 全屏图标 -->
+            <el-tooltip effect="dark" content="全屏" placement="bottom">
+                <el-icon class="icon-btn" @click="toggle">
+                    <FullScreen v-if="!isFullscreen" />
+                    <Aim v-else />
+                </el-icon>
+            </el-tooltip>
+            <el-dropdown class="dropdown" @command="handleCommand">
+                <span class="flex items-center text-light-50">
+                    <!-- 头像 -->
+                    <el-avatar
+                        class="mr-2"
+                        :size="25"
+                        :src="$store.state.user.avatar"
+                    />
+                    <!-- 昵称 -->
+                    {{ $store.state.user.username }}
+                    <el-icon class="el-icon--right">
+                        <arrow-down />
+                    </el-icon>
+                </span>
+                <template #dropdown>
+                    <el-dropdown-menu>
+                        <el-dropdown-item command="rePassword"
+                            >修改密码</el-dropdown-item
+                        >
+                        <el-dropdown-item command="logout"
+                            >退出登录</el-dropdown-item
+                        >
+                    </el-dropdown-menu>
+                </template>
+            </el-dropdown>
+        </div>
+    </div>
+    <el-drawer
+        v-model="showDrawer"
+        title="修改密码"
+        size="45%"
+        :close-on-click-modal="false"
+    >
+        <el-form
+            ref="formRef"
+            :rules="rules"
+            :model="form"
+            label-width="80px"
+            size="small"
+        >
+            <el-form-item prop="oldpassword" label="旧密码">
+                <el-input
+                    v-model="form.oldpassword"
+                    placeholder="请输入旧密码"
+                ></el-input>
+            </el-form-item>
+            <el-form-item prop="password" label="新密码">
+                <el-input
+                    type="password"
+                    v-model="form.password"
+                    placeholder="请输入密码"
+                    show-password
+                ></el-input>
+            </el-form-item>
+            <el-form-item prop="repassword" label="确认密码">
+                <el-input
+                    type="password"
+                    v-model="form.repassword"
+                    placeholder="请输入确认密码"
+                    show-password
+                ></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="onSubmit" :loading="loading"
+                    >提交</el-button
+                >
+            </el-form-item>
+        </el-form>
+    </el-drawer>
+</template>
+
+<script setup>
+import { ref, reactive } from "vue";
+import { logout, updatepassword } from "~/api/manager";
+import { showModal, toast } from "~/composables/util";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+import { useFullscreen } from "@vueuse/core";
+
+// 是否全屏 全屏切换
+const { isFullscreen, toggle } = useFullscreen();
+
+const store = useStore();
+const router = useRouter();
+
+// 修改密码抽屉是否弹出
+const showDrawer = ref(false);
+
+// do not use same name with ref
+const form = reactive({
+    oldpassword: "",
+    password: "",
+    repassword: "",
+});
+
+// 定义登录验证规则
+// 必须和上面表单属性一样
+const rules = {
+    oldpassword: [
+        {
+            required: true,
+            message: "旧密码不能为空",
+            trigger: "blur",
+        },
+    ],
+    password: [
+        {
+            required: true,
+            message: "新密码不能为空",
+            trigger: "blur",
+        },
+    ],
+    repassword: [
+        {
+            required: true,
+            message: "确认密码不能为空",
+            trigger: "blur",
+        },
+    ],
+};
+
+// 让formRef变成响应式
+const formRef = ref(null);
+const loading = ref(false);
+const onSubmit = () => {
+    formRef.value.validate((valid) => {
+        if (!valid) {
+            return false;
+        }
+        loading.value = true;
+        updatepassword(form)
+            .then((res) => {
+                toast("修改密码成功，请重新登录");
+                store.dispatch("logout");
+                // 跳转回登录页
+                router.push("/login");
+            })
+            .finally(() => {
+                loading.value = false;
+            });
+    });
+};
+
+// 刷新
+const handleRefresh = () => location.reload();
+
+const handleCommand = (c) => {
+    switch (c) {
+        case "logout":
+            handleLogout();
+            break;
+        case "rePassword":
+            // 修改密码
+            showDrawer.value = true;
+            break;
+        default:
+            break;
+    }
+};
+
+function handleLogout() {
+    showModal("是否要退出登录?").then((res) => {
+        // console.log("退出登录");
+        logout().finally(() => {
+            // 不管成功，都要到这
+            store.dispatch("logout");
+            // 跳转回登录
+            router.push("/login");
+            // 提示退出成功
+            toast("退出成功");
+        });
+    });
+}
+</script>
+
+<style scoped>
+.f-header {
+    @apply flex bg-indigo-700 text-light-50 fixed top-0 left-0 right-0 items-center;
+    height: 64px;
+}
+.logo {
+    width: 250px;
+    @apply flex justify-center items-center text-xl font-thin;
+}
+.icon-btn {
+    @apply flex justify-center items-center;
+    width: 42px;
+    height: 64px;
+    cursor: pointer;
+}
+.icon-btn:hover {
+    @apply bg-indigo-600;
+}
+
+.f-header .dropdown {
+    height: 64px;
+    cursor: pointer;
+    @apply flex justify-center items-center mx-5;
+}
+</style>
+
+```
+
+:::caution 注意
+
+我们还需要在`axio.js`中的全局响应拦截器里添加判断，是否是`token`失效了，失效，虽然后端是退出了，但是前端的还保留着，我们还需要前端也清理一下数据。
+
+```js
+import store from './store'
+
+// 添加响应拦截器
+service.interceptors.response.use(
+    function (response) {
+        // 对响应数据做点什么
+        return response.data.data
+    },
+    function (error) {
+        const msg = error.response.data.msg || '请求失败'
+        // todo 这里感觉使用文字来判断不可行，后期可以进行优化
+        if (msg == '非法token，请先登录！') {
+            store.dispatch('logout').finally(() => location.reload())
+        }
+        // 对响应错误做点什么
+        toast(msg, 'error')
+        return Promise.reject(error)
+    }
+)
+```
+
+:::
+
+
+
+## form表单抽屉组件封装
+
+`vue3 setup`暴露出去属性文档：[https://cn.vuejs.org/api/sfc-script-setup.html#defineexpose](https://cn.vuejs.org/api/sfc-script-setup.html#defineexpose)
+
+`vue3 defimeProps defineEmits 组件文档`：[https://cn.vuejs.org/api/sfc-script-setup.html#defineprops-defineemits](https://cn.vuejs.org/api/sfc-script-setup.html#defineprops-defineemits)
+
+```js
+<template>
+    <el-drawer
+        v-model="showDrawer"
+        :title="title"
+        :size="size"
+        :close-on-click-modal="false"
+        :destroy-on-close="destroyOnClose"
+    >
+        <div class="formDrawer">
+            <div class="body">
+                <slot></slot>
+            </div>
+            <div class="actions">
+                <el-button :loading="loading" type="primary" @click="submit">{{
+                    confrimText
+                }}</el-button>
+                <el-button type="default" @click="close">取消</el-button>
+            </div>
+        </div>
+    </el-drawer>
+</template>
+
+<script setup>
+import { ref } from "vue";
+const showDrawer = ref(false);
+
+// 打开抽屉
+const open = () => (showDrawer.value = true);
+// 关闭抽屉
+const close = () => (showDrawer.value = false);
+
+const loading = ref(false);
+
+// 显示进度条
+const showLoading = () => (loading.value = true);
+// 隐藏进度条
+const hideLoading = () => (loading.value = false);
+
+const emit = defineEmits(["submit"]);
+// 提交 执行通知父组件
+const submit = () => emit("submit");
+
+const props = defineProps({
+    title: String,
+    size: {
+        type: String,
+        default: "45%",
+    },
+    destroyOnClose: {
+        type: Boolean,
+        default: false,
+    },
+    confrimText: {
+        type: String,
+        default: "提交",
+    },
+});
+
+// 向父组件暴露以下方法
+defineExpose({
+    open,
+    close,
+    showLoading,
+    hideLoading,
+});
+</script>
+
+<style scoped>
+.formDrawer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    @apply flex flex-col;
+}
+
+.formDrawer .body {
+    flex: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 50px;
+    overflow-y: auto;
+}
+
+.formDrawer .actions {
+    height: 50px;
+    @apply mt-auto flex items-center;
+}
+</style>
+
+```
+
+然后上面的修改密码的弹出框和表单就可以简化为
+
+```html
+<form-drawer
+             ref="formDrawerRef"
+             title="修改密码"
+             destroyOnClose
+             @submit="onSubmit"
+             >
+    <el-form
+             ref="formRef"
+             :rules="rules"
+             :model="form"
+             label-width="80px"
+             size="small"
+             >
+        <el-form-item prop="oldpassword" label="旧密码">
+            <el-input
+                      v-model="form.oldpassword"
+                      placeholder="请输入旧密码"
+                      ></el-input>
+        </el-form-item>
+        <el-form-item prop="password" label="新密码">
+            <el-input
+                      type="password"
+                      v-model="form.password"
+                      placeholder="请输入密码"
+                      show-password
+                      ></el-input>
+        </el-form-item>
+        <el-form-item prop="repassword" label="确认密码">
+            <el-input
+                      type="password"
+                      v-model="form.repassword"
+                      placeholder="请输入确认密码"
+                      show-password
+                      ></el-input>
+        </el-form-item>
+    </el-form>
+</form-drawer>
+```
+
+```js
+// ... 其他代码
+
+// 引入组件
+import FormDrawer from "~/components/FormDrawer.vue";
+
+const formDrawerRef = ref(null);
+// 让formRef变成响应式
+const formRef = ref(null);
+const onSubmit = () => {
+    formRef.value.validate((valid) => {
+        if (!valid) {
+            return false;
+        }
+        // 显示进度条
+        formDrawerRef.value.showLoading();
+        updatepassword(form)
+            .then((res) => {
+                toast("修改密码成功，请重新登录");
+                store.dispatch("logout");
+                // 跳转回登录页
+                router.push("/login");
+            })
+            .finally(() => {
+            	// 隐藏进度条
+                formDrawerRef.value.hideLoading();
+            });
+    });
+};
+```
+
