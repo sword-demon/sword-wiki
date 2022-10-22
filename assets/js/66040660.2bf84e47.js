@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[5188],{2434:s=>{s.exports=JSON.parse('{"label":"K8S","permalink":"/sword-wiki/blog/tags/k-8-s","allTagsPath":"/sword-wiki/blog/tags","count":1}')}}]);
