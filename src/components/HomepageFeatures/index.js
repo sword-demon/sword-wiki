@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
 import styled from "@emotion/styled";
-import BgImage from "@site/static/my/daye.svg";
+import BgImage from "@site/static/my/logo.svg";
 import { useSpring, animated, useTrail } from "react-spring";
 
 const FeatureList = [
