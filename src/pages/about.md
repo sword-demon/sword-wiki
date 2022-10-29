@@ -25,6 +25,7 @@ title: 关于
 
 ## 技能点
 
+- 熟悉PHP、Java、Go、Rust、Python
 - 熟悉Laravel/ThinkPHP/CI/Django/SpringBoot
 - 擅长MVC架构设计
 - 熟练使用4~6k显示器
@@ -32,8 +33,6 @@ title: 关于
 - 熟悉数据库/应用存储
 - 熟悉Git/SVN代码版本控制管理
 - 熟悉使用Mac/Windows/Linux
-- 了解Rust
-
 
 
 ## 成就
