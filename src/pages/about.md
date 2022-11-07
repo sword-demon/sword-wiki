@@ -26,7 +26,7 @@ title: 关于
 ## 技能点
 
 - 熟悉PHP、Java、Go、Rust、Python
-- 熟悉Laravel/ThinkPHP/CI/Django/SpringBoot
+- 熟悉Laravel/ThinkPHP/gin/go-zero/CI/Django/SpringBoot/Django-restframework
 - 擅长MVC架构设计
 - 熟练使用4~6k显示器
 - 熟悉MacBookPro M1
