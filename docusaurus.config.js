@@ -28,7 +28,6 @@ const config = {
         defaultLocale: 'zh-Hans',
         locales: ['zh-Hans'],
     },
-
     presets: [
         [
             'classic',
@@ -97,7 +96,7 @@ const config = {
                 breadcrumbs: false,
                 remarkPlugins: [
                     [require('@docusaurus/remark-plugin-npm2yarn'), {sync: true}],
-                ]
+                ],
             },
         ],
         [
@@ -201,6 +200,11 @@ const config = {
                     },
                 ]
             },
+            docs: {
+                sidebar: {
+                    hideable: true,
+                }
+            }
         }),
 };
 
