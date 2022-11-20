@@ -4,11 +4,21 @@
         <title>wxvirus`s Blog</title>
         <link>https://sword-demon.github.io/sword-wiki/blog</link>
         <description>wxvirus 的个人生活和工作记录</description>
-        <lastBuildDate>Sat, 22 Oct 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 20 Nov 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>zh-Hans</language>
         <copyright>Copyright © 2022 wxvirus, Inc.</copyright>
+        <item>
+            <title><![CDATA[idea-project消失问题]]></title>
+            <link>https://sword-demon.github.io/sword-wiki/blog/idea-project消失问题</link>
+            <guid>idea-project消失问题</guid>
+            <pubDate>Sun, 20 Nov 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[在IDEA编辑器中，有时会出现项目工程目录不显示的情况。]]></description>
+            <content:encoded><![CDATA[<p>在IDEA编辑器中，有时会出现项目工程目录不显示的情况。</p><p>清除配置，重新生成配置。 </p><ol><li>关闭IDEA，</li><li>删除项目文件夹下的.idea文件夹和*.iml文件</li><li>重新用IDEA工具打开项目</li></ol>]]></content:encoded>
+            <category>IDEA</category>
+            <category>Project</category>
+        </item>
         <item>
             <title><![CDATA[快速部署Rancher2和K8S集群]]></title>
             <link>https://sword-demon.github.io/sword-wiki/blog/rancher-note</link>

@@ -2,12 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://sword-demon.github.io/sword-wiki/blog</id>
     <title>wxvirus`s Blog</title>
-    <updated>2022-10-22T00:00:00.000Z</updated>
+    <updated>2022-11-20T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://sword-demon.github.io/sword-wiki/blog"/>
     <subtitle>wxvirus 的个人生活和工作记录</subtitle>
     <icon>https://sword-demon.github.io/sword-wiki/my/logo.ico</icon>
     <rights>Copyright © 2022 wxvirus, Inc.</rights>
+    <entry>
+        <title type="html"><![CDATA[idea-project消失问题]]></title>
+        <id>idea-project消失问题</id>
+        <link href="https://sword-demon.github.io/sword-wiki/blog/idea-project消失问题"/>
+        <updated>2022-11-20T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[在IDEA编辑器中，有时会出现项目工程目录不显示的情况。]]></summary>
+        <content type="html"><![CDATA[<p>在IDEA编辑器中，有时会出现项目工程目录不显示的情况。</p><p>清除配置，重新生成配置。 </p><ol><li>关闭IDEA，</li><li>删除项目文件夹下的.idea文件夹和*.iml文件</li><li>重新用IDEA工具打开项目</li></ol>]]></content>
+        <author>
+            <name>wxvirus</name>
+            <uri>https://www.wjstar.top/img/avatar.jpeg</uri>
+        </author>
+        <category label="IDEA" term="IDEA"/>
+        <category label="Project" term="Project"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[快速部署Rancher2和K8S集群]]></title>
         <id>rancher-note</id>
